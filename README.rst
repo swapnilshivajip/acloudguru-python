@@ -64,26 +64,50 @@ Now, if we run the program hr, with no arguments, it should fetch us some user i
 
 >>> [user@$host hr]$ hr
 
-[user@$host hr]$ hr
+::json
+    [
+        {
+            "name": "cloud_user",
+            "id": 1000,
+            "home": "/home/cloud_user",
+            "shell": "/bin/bash"
 
-.. code-block:: json
-	[
-	  {
-		"name": "cloud_user",
-		"id": 1000,
-		"home": "/home/cloud_user",
-		"shell": "/bin/bash"
-	  },
-	  {
-		"name": "centos",
-		"id": 1001,
-		"home": "/home/centos",
-		"shell": "/bin/bash"
-	  },
-	  {
-		"name": "ssm-user",
-		"id": 1002,
-		"home": "/home/ssm-user",
-		"shell": "/bin/bash"
-	  }
-	]
+        },
+
+        {
+            "name": "centos",
+            "id": 1001,
+            "home": "/home/centos",
+            "shell": "/bin/bash"
+
+        },
+
+        {
+            "name": "ssm-user",
+            "id": 1002,
+            "home": "/home/ssm-user",
+            "shell": "/bin/bash"
+
+        }
+
+    ]
+
+***************
+Other commands:
+***************
+
+Typing hr --help will give you a bit of information about hr usage, like valid arguments.
+
+We can dump out CSV instead of JSON, if we want, with the --format argument.
+
+>>> [user@$host hr]$ hr --format=csv
+name,id,home,shell
+cloud_user,1000,/home/cloud_user,/bin/bash
+centos,1001,/home/centos,/bin/bash
+ssm-user,1002,/home/ssm-user,/bin/bash
+
+These both outputted the data to the screen. Our programming is supposed to accommodate JSON and CSV files, remember? Let's give one of those a whirl with a --path argument.
+
+>>> [user@$host hr]$ hr --format=json --path=users.json
+
+We won't see any output here — just another command prompt. But we should see a users.json sitting in the directory we're at.
