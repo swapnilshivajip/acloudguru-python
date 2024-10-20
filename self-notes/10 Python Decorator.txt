@@ -1,0 +1,164 @@
+Var Args:
+
+	Special Symbols Used for passing arguments in Python:
+		*args (Non-Keyword Arguments)
+		**kwargs (Keyword Arguments)
+
+	Example1 Var Args:
+		def myFun(*argv):
+		for arg in argv:
+			print(arg)
+		myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks')
+		
+	Example2 KWVar Args:
+		def myFun(**kwargs):
+		for key, value in kwargs.items():
+			print("%s == %s" % (key, value))
+		# Driver code
+		myFun(first='Geeks', mid='for', last='Geeks')
+		
+-------------------------------------------------------------------------------------------		
+		
+Nested Function:
+	We can include one function inside another, known as a nested function. For example,
+	
+		def outer(x):
+			def inner(y):
+				return x + y
+			return inner
+
+		add_five = outer(5)
+		result = add_five(6)
+		print(result)  # prints 11
+
+		# Output: 11
+	
+Pass Function as Argument:
+	We can pass a function as an argument to another function in Python. For Example,
+	
+		def add(x, y):
+			return x + y
+
+		def calculate(func, x, y):
+			return func(x, y)
+
+		result = calculate(add, 4, 6)
+		print(result)  # prints 10
+-------------------------------------------------------------------------------------------
+
+Decorators:
+	A Python decorator is a function that takes in a function and returns it by adding some functionality.
+	In fact, any object which implements the special __call__() method is termed callable. So, in the most basic sense, a decorator is a callable that returns a callable.
+	Basically, a decorator takes in a function, adds some functionality and returns it.
+	
+	****************************************************
+	Examples:
+	
+	****************************************************
+	Example1 without @symbol decoration:
+		
+		def make_pretty(func):
+			# define the inner function 
+			def inner():
+				# add some additional behavior to decorated function
+				print("I got decorated")
+
+				# call original function
+				func()
+			# return the inner function
+			return inner
+
+		# define ordinary function
+		def ordinary():
+			print("I am ordinary")
+			
+		# decorate the ordinary function
+		decorated_func = make_pretty(ordinary)
+
+		# call the decorated function
+		decorated_func()
+	
+	Output:
+		I got decorated
+		I am ordinary
+	
+	****************************************************
+	Example2 @ Symbol With Decorator:
+		
+		def make_pretty(func):
+			def inner():
+				print("I got decorated")
+				func()
+			return inner
+
+		@make_pretty
+		def ordinary():
+			print("I am ordinary")
+
+		ordinary()  
+		
+		Output:
+			I got decorated
+			I am ordinary
+	
+	****************************************************
+	Example3:
+	
+		def inspect(func):
+			def wrapped_func(*args, **kwargs):
+				print(f"Running {func.__name__}")
+				val = func(*args, **kwargs)
+				print(f"Result value:{val}")
+				return val
+			return wrapped_func
+			
+		@inspect
+		def combine(a,b):
+			return a+b
+			
+		run above program as:
+			combine(1,b=2)
+			Here,
+			putting @inspect above 'combine' method is same as wrapped_func = inspect(combine,1,2)
+		
+	****************************************************
+	
+Common decorators:
+
+	@staticmethod : 
+		A static method does not receive an implicit first argument. A static method is also a method that is bound to the class and not the object of the class. This method can’t access or modify the class state. They are utility-type methods that take some parameters and work upon those parameters.
+	
+	@property
+	
+	@classmethod : 
+		The classmethod() methods are bound to a class rather than an object. A class method takes cls as the first parameter while a static method needs no specific parameters. It can modify a class state that would apply across all the instances of the class. For example, it can modify a class variable that will be applicable to all the instances.
+	
+	example:
+	
+	class User:
+		base_url = "https://example.com/api"
+		
+		def __init__(self, first_name, last_name):
+			self.first_name = first_name
+			self.last_name = last_name
+			
+		@classmethod
+		def query(cls, query_string):
+			return cls.base_url + "?" + query_string
+			
+		@staticmethod
+		def name():
+			return "John Wick"
+			
+		@property
+		def full_name(self):
+			return f"{self.first_name} {self.last_name}"
+			
+			
+	Run:
+		User.name()					=> John Wick
+		User.query("name=test")		=> https://example.com/api?name=test
+		user = User("John","Doe")
+		user.base_url				=> https://example.com/api
+		user.full_name				=> John Doe
+		

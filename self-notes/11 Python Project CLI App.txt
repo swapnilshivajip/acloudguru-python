@@ -1,0 +1,5 @@
+
+clouduser < pg user and password on dbserver
+
+psql postgres://clouduser:clouduser@15.206.178.port:port/sample -c "SELECT count(id) FROM employees;"
+ count

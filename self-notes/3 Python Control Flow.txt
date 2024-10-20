@@ -1,0 +1,78 @@
+Comparison Operators:
+	>
+	<
+	>=
+	<=
+	!=
+	==
+
+-------------------------------------------------------------
+	
+in Operator:
+
+	2 in [1,3,2] => True
+	2 not in [1,3,2] => False
+
+-------------------------------------------------------------
+
+if-else:
+
+	if condition:
+		//stmt
+	elif condition:
+		//stmt
+	else:
+		//stmt
+
+-------------------------------------------------------------
+
+Logical Operations:
+
+	1.
+	not 		=> negation
+	"" 		=> False
+	not "" 		=> True
+	not 1>2 	=> True
+	
+	2.
+	or		=> if any value evaluates to truthy, then full OR expression return True
+	True or False 	=> True
+
+	3. 
+	and		=> if any value evaluates to falsy, then full OR expression return False
+	True and False 	=> False
+
+	name = ""
+	first_name = name or "John" 	=> John
+
+-------------------------------------------------------------
+
+While loop:
+
+	while condition:
+		//stmt
+	
+	example1:
+	count = 1
+	while count <= 4:
+		print(count) 		=> 1,2,3,4
+		count += 1
+
+
+Loop control keywords:
+	continue
+	break
+
+-------------------------------------------------------------
+
+For loop:
+
+	for condition with increment:
+		//stmt
+
+	example1:
+	for color in ["Red","Black","Blue"]:
+		print(color)
+
+	
+	

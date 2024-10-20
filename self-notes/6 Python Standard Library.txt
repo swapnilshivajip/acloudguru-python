@@ -1,0 +1,77 @@
+Import modules:
+
+	1.
+	import math
+	math.pi => 3.14
+	math.ceil()
+	math.floor()
+	
+	OR
+	
+	2.
+	from math import pi, ceil
+	pi => 3.14
+	ceil()
+	floor()
+	
+	OR
+	
+	3.
+	from math import pi a p
+	p	=> 3.14
+	
+	OR
+	
+	4.
+	from math import *
+	floor		=> this also works
+	math.floor	=> this also works
+	
+-----------------------------------------------------------------
+
+Important modules:
+
+argparse	- parser for command-line options, arguments and sub-commands
+json		- encode and decode json as dict or list
+os		 	- operating system interface
+sys 		- system specific parameters and functions
+pdb			- python debugger
+
+-----------------------------------------------------------------
+
+Third party modules installation:
+
+pip							- preffered installer program, used to install modules
+pip install --user boto3	- install boto3 library locally
+pip freeze					- check all installed modules
+pip list					- check all installed modules in more readable format
+pip freeze > requirement.txt	- write all modules in text file
+pip install --user -r requirement.txt	- install all modules from text file
+
+-----------------------------------------------------------------
+
+venv OR virtual env:
+
+$ mkdir ~/venvs				
+- create a venvs folder in home directory (~ used for home)
+
+$ python -m venv	~/venvs/pg	
+- creates pg folder with files/folders: bin/, include/, lib/, lib64/,  pyenv.cfg
+/bin will have its own python and pip installed. It will have activate file which will activate venv 
+
+$source ~/venvs/pg/bin/activate	
+- run activate file
+Note: The source command in Linux is a built-in shell command that reads and executes commands from a file in the current shell environment. It is also known as the dot command. The source command is typically used to load configuration files or to make changes to the environment without restarting the shell.
+
+$ which python
+- know which python is being used. it will show ~/venvs/pg/bin/python. Same applies to pip
+
+$ pip install psychopg2
+- install psychopg2 in venv and not locally or globally. this module is limited to pg venv only
+
+$ deactivate
+- exit out of venv 
+
+NOTE:
+"pipenv" is new age module used to manage venv. Substitute to venv module.
+

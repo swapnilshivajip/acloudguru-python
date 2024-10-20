@@ -1,0 +1,132 @@
+-Class, Methods, Constructor:
+
+	class ClassName:
+		"""
+		Docstring describing the class
+		"""
+		def method_name():
+			//stmt
+			pass
+		
+		def __init__(self):
+			"""
+			Constructor
+			"""
+			//stmt
+			pass
+			
+-Object Creation:
+
+	my_obj = ClassName()
+	
+-Example:
+
+	class Car:
+	
+		def __init__(self, engine, tires):
+			self.engine = engine
+			self.tires = tires
+			
+		def description(self):
+			print(f"car with an {self.engine} engine and {self.tires} tires")
+			
+		def wheel_circumference(self):
+			if len(self.tires) > 0:
+				return self.tires[0].circumference()
+			else:
+				return 0
+			
+			
+	civic = Car('4 cylinder',['front-left','front-right','rear-left','rear-right'])
+	print(civic.engine)		=> 4 cylinder
+	civic.description()		=> car with an 4 cylinder and ['front-left','front-right','rear-left','rear-right'] tires
+	
+--------------------------------------------------------------------------------------
+
+Composition:
+
+Tire.py
+
+	import math
+	class Tire:
+		
+		def __init__(self, tire_type, width, ratio, diameter, brand='', construction='R'):
+			self.tire_type = tire_type
+			self.width = width
+			self.ratio = ratio
+			self.diameter = diameter
+			self.brand = brand
+			self.construction = construction
+			
+		def __repr__(self):
+			"""
+			Represent the tire info
+			"""
+			return(f"{self.tire_type}{self.width}/{self.ratio}{self.construction}{self.diameter}")
+			
+		def circumference(self):
+			"""
+			The circumference of tires in inches.
+			
+			>>> tire = Tire('P',205,65,15)
+			>>> tire.circumference()
+			80.1
+			"""
+			
+			total_diameter = self._side_wall_inches() * 2 + self.diameter
+			return round(total_diameter * math.pi, 1)
+			
+		def _side_wall_inches(self):
+			return (self.width *(self.ratio/100))/25.4
+			
+Creating_classes.py
+
+	from tire import Tire
+	
+	tire = Tire('P',205,55,15)
+	tires = [tire, tire, tire, tire]
+	honda = Car(tires=tires, engine='4 cylinder')
+	honda.description() 	=> car with an 4 cylinder and ['P205/55R15','P205/55R15','P205/55R15','P205/55R15'] tires
+	honda.wheel_circumference() => 80.1
+	tire.circumference() 		=> 80.1
+	
+	
+--------------------------------------------------------------------------------------
+
+Inheritance:
+
+	class SnowTire(Tire):
+		
+		def __init__(self, tire_type, width, ratio, diameter, chain_thickness, brand='', construction='R'):
+			Tire.__init__(self, tire_type, width, ratio, diameter, brand='', construction='R')
+											OR
+			super().__init__(tire_type, width, ratio, diameter, brand='', construction='R')
+			self.chain_thickness = chain_thickness
+			
+		def circumference(self):
+			"""
+			Circumference of tire with snow chains
+			"""
+			total_diameter = (self._side_wall_inches()+self.chain_thickness) *2 + self.diameter
+			return round(total_diameter * math.pi,1)
+			
+		def __repr__(self):
+			return super() + " (Snow)"
+			
+--------------------------------------------------------------------------------------
+
+Polymorphism:
+	
+	example.py
+	
+	from tire import Tire, SnowTire
+	
+	tire = SnowTire('P', 205, 65, 15, 2)
+	tires = [tire, tire, tire, tire]
+	honda = Car(tires=tires, engine='4 Cylinder')
+	
+			
+			
+		
+	
+	

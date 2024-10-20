@@ -1,0 +1,42 @@
+Functions:
+
+	def function_name(arguments_if_any):
+		//stmt
+
+	******************************
+
+	example1:
+
+	def hello():
+		print("Hello World!")
+
+	hello()		=> Hello World!
+
+	******************************
+
+	example2:
+	def add_two(num1,num2):
+		return num1 + num2
+
+	******************************
+
+	example3:
+	
+	def contact_card(name,age,car):
+		print(f"{name} is {age} years old and drives {car}")
+
+	contact_card(car="civic",age=25,name="Jon")
+
+	******************************
+	
+	example4:
+
+	def can_drive(age, driving_age=16):
+		if(age<driving_age):
+			print("Not eligible")
+		else:
+			print("eligible")
+		
+
+	can_drive(10,15) => Not eligible
+	can_drive(20)	 => eligible

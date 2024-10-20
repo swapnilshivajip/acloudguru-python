@@ -1,0 +1,31 @@
+https://github.com/linuxacademy/content-intro-to-python-development
+
+
+HTTP Request Methods:
+
+	GET
+	HEAD
+	POST
+	PUT
+	DELETE
+	PATCH
+	
+
+Application Architecture:
+
+	Model: holds onto data and business logic.
+	
+	View: representation of business logic, view portion usually will be HTML templates that are rendered and return
+	
+	Controller: this is the input/output interface for application. the controller recieves the requests, then utilizes the model and view to displaye proper response.
+	
+	
+SQL Alchemy:
+	python module for ORM (Object relational mapper)
+	
+	
+flask db init
+flask db migrate
+flask db upgrade
+
+flask run --host=0.0.0.0 --port=3000

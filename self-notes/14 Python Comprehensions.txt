@@ -1,0 +1,137 @@
+A. Substitute for loop with list comprehensions:
+
+	Note: comprehensions do not affect speed or performance, it just improves readability
+
+	-
+		#for loop
+		float_list = []
+		for i in range(100):
+			float_list.append(i*100.0)
+			
+	-
+		#list comprehensions
+		float_list = [i*100.0 for i in range(100)]
+	
+
+	Convert following function to make use of list comprehensions:
+	
+		def process_incoming_data(data_list):
+			temp = []
+			for datum in data_list:
+				temp.append(datum//2*67 - 5)
+			return temp
+			
+		# using comprehensions	
+		def process_incoming_data(data_list):
+			return [(datum//2*67-5) for datum in data_list]
+			
+-----------------------------------------------------------------------------------------------------
+	
+B. Substitute for loop with dict comprehensions:
+
+
+	-
+		#for loop
+		float_dict = {}
+		for i in range(10):
+			float_dict[i] = i*100.0
+			
+	-
+		#dictionary comprehensions
+		float_dict = {i:i*100.0 for i in range(10)}
+		
+	Convert following function to make use of dictionary comprehensions:
+	
+		hydration_levels = {"arc1":23, "arc2":64, "arc3":104}
+		
+		def saturation_levels(data_dict):
+			temp = {}
+			for key,value in data_dict.items():
+				temp[key] = (value**3)/(2**value)
+			return temp
+			
+		#using comprehensions
+		def saturation_levels(data_dict):
+			return {key:(value**3)/(2**value) for key,value in data_dict.items()}
+			# OR
+			# return {k:(v**3)/(2**v) for k,v in data_dict.items()}
+			
+-----------------------------------------------------------------------------------------------------
+
+Add conditions to comprehensions:
+
+	-
+		float_list = []
+		# for loop
+		for i in range(100):
+			if i%2 == 0:
+				float_list.append(i*100.0)
+			else:
+				float_list.append(-1)
+				
+	-
+		# list comprehensions
+		float_list = [i*100.0 if i%2 == 0 else -1 for i in range(100)]
+		
+	Convert following function to make use of comprehensions:
+	
+		def find_usable_data(data_list):
+			temp = []
+			for datum in data_list:
+				if datum > 90 and datum % 2 == 0:
+					temp.append(datum)
+				else:
+					temp.append(-100)
+			return temp
+			
+		# using comprehensions
+		
+		def find_usable_data(data_list):
+			return [d if d > 90 and d % 2 == 0 else -100 for d in data_list]
+			
+-----------------------------------------------------------------------------------------------------
+
+Nested comprehensions:
+
+	-
+		#for loop
+		float_list = []
+		for i in range(100):
+			for j in range(10):
+				float_list.append(i*j)
+				
+	-
+		#list comprehensions
+		float_list = [i*j for i range(100) for j in range(10)]
+		
+		Note: inner most for loop comes last in list comprehensions
+		
+	Convert following function to make use of comprehensions:
+	
+		def calculate_value(data_list, divisors_list):
+			temp = []
+			for datum in data_list:
+				for divisor in divisors_list:
+					temp.append(datum / divisor)
+			return temp
+			
+		# using comprehensions
+		
+		def calculate_value(data_list, divisors_list):
+			return [datum / divisor for datum in data_list for divisor in divisors_list]
+			
+-----------------------------------------------------------------------------------------------------
+
+Map and comprehensions:
+
+
+	numbers = [1,2,3,4]
+	
+	def my_operation(i):
+		return i * 2
+		
+	# map function
+	doubled_list = list(map(my_operation, numbers))
+	
+	# list comprehensions
+	doubled_list = [ my_operation(i) for i in numbers ]

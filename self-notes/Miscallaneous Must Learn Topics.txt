@@ -1,0 +1,41 @@
+Learn:
+
+	1. setuptools module > setup.py
+	2. pipenv module
+	3. __init__.py
+	4. Create distributable wheel: `python setup.py bdist_wheel`
+		https://packaging.python.org/en/latest/tutorials/packaging-projects/
+	5. Project structure
+		https://docs.python-guide.org/writing/structure/
+		https://realpython.com/python-application-layouts/
+	6. Best to follow total python course by Mosh Hamedani [Paid]
+	7. Best to follow self paced readable course by : https://www.programiz.com/python-programming#guide
+
+-------------------------------------------------------------------------------------------------
+
+sample setup.py:
+
+	from setuptools import find_packages, setup
+
+	with open('README.md', 'r') as f:
+		long_description = f.read()
+
+	setup(
+		name='pgpackup',
+		version='0.1.0',
+		author='Keith Thompson',
+		author_email='keith@linuxacademy.com',
+		description='A utility for backing up PostgreSQL databases',
+		long_description=long_description,
+		long_description_content_type='text/markdown',
+		url='https://github.com/your_username/pgbackup',
+		packages=find_packages('src'),
+		package_dir={'': 'src'},
+		install_requires=['boto3'],
+		python_requires='>=3.6',
+		entry_points={
+			'console_scripts': [
+				'pgbackup=pgbackup.cli:main',
+			],
+		}
+	)

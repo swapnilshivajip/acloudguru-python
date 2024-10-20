@@ -1,0 +1,10 @@
+os module
+environ - attribute of dict type which hold all env variable
+getenv - function to get value of required env variable
+
+example:
+
+	import os
+	stage = os.environ['STAGE'].upper()			- this will throw error if STAGE env var is missing
+	level = os.getenv('LEVEL','info')			- this will assign info value if LEVEL var is miss
+	

@@ -1,0 +1,80 @@
+The map() function executes a given function to each element of an iterable (such as lists, tuples, etc.).
+
+
+Example:
+
+	numbers = [1,2,3,4]
+
+	# returns the square of a number
+	def square(number):
+	  return number * number
+
+	# apply square() to each item of the numbers list
+	squared_numbers = map(square, numbers)
+
+	# converting to list for printing
+	result = list(squared_numbers)
+	print(result) 
+
+	# Output: [1,4,9,16]
+	
+
+map() Syntax:
+	map(function, iterables)
+	
+	
+map() Arguments:
+	The map() function takes two arguments:
+
+		function - a function that is applied to each element of an iterable.
+		iterables - iterables such as lists, tuples, etc.
+	Note: We can pass more than one iterable to the map() function.
+
+	
+map() Return Value:
+	The map() function returns a map object, which can be easily converted to lists, tuples, etc.
+	
+
+Example: Working of map()
+
+		def square(n):
+			return n*n
+
+		numbers = (1, 2, 3, 4)
+		result = map(square, numbers)
+		print(result)
+
+		# converting the map object to set
+		result = set(result)
+		print(result)
+		
+		==>
+		<map object at 0x7f722da129e8>
+		{16, 1, 4, 9}
+		
+		
+String Modification using map()
+We can use map() function to modify the string. For example,
+
+	# list of actions
+	actions=['eat', 'sleep','read']
+	# convert each string into list of individual characters 
+	result= list(map(list,actions))
+	print(result)
+	
+	==>
+	[['e', 'a', 't'], ['s', 'l', 'e', 'e', 'p'], ['r', 'e', 'a', 'd']]
+
+
+Add Multiple Lists using map() and lambda
+We can use map() and lambda to add multiple lists in Python. For example,
+
+	num1 = [1, 2, 3]
+	num2 = [10, 20, 40]
+
+	# add corresponding items from the num1 and num2 lists
+	result = map(lambda n1, n2: n1+n2, num1, num2)
+	print(list(result))
+	
+	==>
+	[11, 22, 43]

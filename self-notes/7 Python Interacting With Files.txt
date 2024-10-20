@@ -1,0 +1,52 @@
+Working with files:
+
+open("file_path", mode)		- open file with given mode
+modes:
+r	- open for reading (default)
+w	- open for writing, truncating the file first
+x	- open for exclusive creation, failing if the file already exists
+a	- open for writing or appending to the end of the file if it exists
+b	- binary mode
+t	- text mode (default)
++	- open a disk file for updating 
+
+
+example:
+
+1. writing:
+	my_file = open("demo.txt", "w+")
+	my_file.write("Beast\n")
+	my_file.write("Pheonix\n")
+	my_file.writelines([
+					"Beast\n",
+					"Bishop\n",
+					"Cyclops\n",
+				])
+	my_file.close()			
+
+
+2. reading:
+	my_file = open("demo.txt")
+	print(my_file.read())		- 	cursor moves to last line last char after reading
+	my_file.seek(0)				-	resetting the cursor back to 0th position to read it again
+	print(my_file.read())		- 	re-read file
+	my_file.close()
+	
+	OR
+	
+	#read without explicit closing
+	my_file = open("demo.txt")
+	with my_file:
+		print(my_file.read())
+
+3. write to file and automatically close the file without using close()
+	with open("demo.txt", "w+") as my_file:
+		my_file = open("demo.txt", "w+")
+		my_file.write("Beast\n")
+		my_file.write("Pheonix\n")
+		my_file.writelines([
+						"Beast\n",
+						"Bishop\n",
+						"Cyclops\n",
+					])
+		my_file.close()	

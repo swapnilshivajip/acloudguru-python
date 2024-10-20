@@ -1,0 +1,135 @@
+Strings:
+
+	Declare String -
+
+	'' OR ""
+
+	'single quoted'
+
+	"double quoted"
+
+	'''
+	multiline string
+	single quoted
+	'''
+
+	'My name is ' + 'Swapnil' => 'My name is Swapnil'
+
+	'Ha ' * 4 => 'Ha Ha Ha Ha '
+
+	Methods:
+
+	'single'.find('d') => -1
+	
+	'single'.find('g') => 3
+
+	'single'.find('le') => 4
+
+	"TeStInG".lower() => "testing"
+
+	str(7.0) => "7.0"
+
+------------------------------------------------------------------------------
+
+Numbers:
+
+	x+y
+	x-y
+	x*y
+	x/y => quotient
+	x//y => floored quotient
+	x%y => remainder of x/y
+	-x
+	+x
+	abs(x) => absolute value of x
+	int(x) => x converted to integer
+	float(x) => x converted to floating point
+	complex(re,im) => complext number with real and imaginary part
+	c.conjugate() => conjugate of complex number c
+	divmod(x,y) => the pair of (x//y, x%y)
+	pow(x,y) => x to the power y
+	x**y => x to the power y
+
+------------------------------------------------------------------------------
+
+Boolean and None:
+
+	bool(1.0) => True
+	bool(0) => False
+	True
+	False
+	bool("abc") => True
+	bool("") => False
+	None => neither True nor False
+
+
+------------------------------------------------------------------------------
+
+Variables:
+
+	my_name = "Keith"
+	print(mu_name) => "Keith"
+
+
+------------------------------------------------------------------------------
+
+Lists:
+
+	my_list = [1,2,3,4,5]
+	my_list[2] => 3
+	len(my_list) => 5
+	my_list[0:2] => [1,2]
+	my_list[2:4] => [3,4]
+	my_list[:3] => [1,2,3]
+	my_list[0:5:2]	=> [1,3,5]
+	my_list[::-1] => [5,4,3,2,1]
+	my_list[0] = "a" => [a,2,3,4,5]
+	my_list[1:3] = "b" => [a,b,4,5]
+	
+
+	Methods:
+	
+	list.append(x) => append x at end of sequence
+	list.clear() => removes all items
+	list.copy() => creates shallow copy
+	s.extend(t) => s += t
+	s.insert(i, x) => insert x at i index position
+	s.pop(i) => retrieves and removes item at index i, if i not given, then removes last item
+	s.remove(x) => removes first item from s where s[i] is equal to x
+	s.reverse() => reverses the items
+
+------------------------------------------------------------------------------
+
+Tuple:
+
+	fixed length collection, cannot be modified once initialized
+
+	my_tuple = (9,8)
+	my_tuple[0] => 9
+	my_tuple[0] = 1 > not allowed
+	
+	a,b = my_tuple
+	print(a) => 9
+	print(b) => 8
+	
+	print("My name is %s %s" % ("Harvey","Specter")) => "My name is Harvey Specter"
+
+	list(range(10)) => [1,2,3,4,5,6,7,8,9,10]
+	list(range(1,10,2)) => [1,3,5,7,9]
+	
+------------------------------------------------------------------------------
+
+Dictionary:
+
+	my_dict = {"a":5,"b":6,"c":7}
+	my_dict["a"] => 5
+	my_dict["d"] = 8 => {"a":5,"b":6,"c":7,"d":8}
+	del my_dict["a"] => {"b":6,"c":7,"d":8}
+	my_dict.pop("b") => {"c":7,"d":8}
+	my_dict.get("c") => 7
+	my_dict.keys() => dict_keys(["c","d"])
+	list(my_dict.keys()) => ["c","d"]
+	list(my_dict.values()) => [7,8]
+	new_dict = dict(kevin=10,bob=20) => {"kevin":10,"bob":20}
+	
+	

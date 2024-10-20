@@ -1,0 +1,21 @@
+Exception handling -
+
+try:
+
+	//stmt
+
+except FileExistsError as err:
+	
+	// stmt : block to handle error of FileExistsError type
+
+except:
+
+	// stmt to handle error, example: sys.exit(1)
+	
+else:
+
+	//stmt: executes if try block dont encounter any error
+
+finally:
+	
+	//stmt: execute irrespective of error occured or not
